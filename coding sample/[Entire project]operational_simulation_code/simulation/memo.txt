@@ -1,0 +1,79 @@
+
+simulate 15 years  24h*365*15 = 131400 h of simulation
+
+
+# datacenter location
+datacenter_system_location = 10km
+
+
+
+
+# operations
+
+## datacenter
+
+### preventive
+
+Today, most data center sites require one or two PM visits per year. However, more PM visits
+may be required if the physical infrastructure equipment resides in a hostile environment
+
+3~5にする？
+Cleaning, repairs  (physical)
+
+
+testing, monitoring
+
+### reactive
+
+
+
+## windfarm (offshore fixed)
+
+### preventive   3times/year
+
+### reactive see below
+
+ranking 1. Jacket and Monopile Support Structure 2. transformer 3. main shaft 4. generator 5. gearbox 6. converter (Scheu et al.)
+
+failure rate(failure/turbine/year) 1. X 2. 0.001 3. 0.003 4. 0.095 5. 0.001  6. 0.005 (major replacement)
+
+
+
+
+# resources
+
+## datacenter
+
+42MW, 2000racks
+
+wind turbine capacity 2.5 MW  --->  17? 18?
+
+
+
+
+
+from v1
+
+RANDOM_SEED = 42  # TODO: change this for different outcomes
+SIM_TIME = 131400  # Simulation time in hours(15 years)
+
+# location
+DISTANCE = 10  # km
+
+# vessel specifications
+VESSEL_SPEED = random.randint(29.5, 48)  # kmh
+VESSEL_CAP = 20  # people capacity
+VESSEL_CHARTER_COST = random.randint(1500 / 24, 4000 / 24)  # $/h  TODO: set this to a single value
+come_go = 10 / VESSEL_SPEED * 2
+
+# wind farm
+NUM_TURBINES = 17
+
+## maintenance (h)
+DAILY = come_go + 4
+WEEKLY = come_go + 4
+MONTHLY = come_go + 8
+
+## wage ($/h)
+WF_WAGE = 30  # TODO: this
+DC_WAGE = 20
